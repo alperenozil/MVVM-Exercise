@@ -1,6 +1,8 @@
 package com.alperenozil.mvvmexercise;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -21,13 +23,17 @@ public class MainActivity extends AppCompatActivity {
         MainActivityViewModel model = new ViewModelProvider(this,androidViewModelFactory).get(MainActivityViewModel.class);
         buttonIncrease=findViewById(R.id.buttonIncrease);
         textViewCount=findViewById(R.id.countTextView);
-        textViewCount.setText(""+model.getCount());
+        LiveData<Integer> count=model.getCountLiveData();
+        count.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                textViewCount.setText(""+integer);
+            }
+        });
         buttonIncrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 model.increaseCount();
-                textViewCount.setText(""+model.getCount());
-                Log.d(TAG, "onCreate: "+model.getCount());
             }
         });
     }

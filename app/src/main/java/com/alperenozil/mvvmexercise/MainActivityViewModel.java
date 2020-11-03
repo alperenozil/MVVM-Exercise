@@ -1,11 +1,18 @@
 package com.alperenozil.mvvmexercise;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainActivityViewModel extends ViewModel {
     private int count=22;
-    public void increaseCount() { count++; }
-    public int getCount() {
-        return count;
+    private MutableLiveData<Integer> countLiveData=new MutableLiveData<>();
+
+    public void increaseCount() {
+        count++;
+        countLiveData.setValue(count);
+    }
+
+    public MutableLiveData<Integer> getCountLiveData() {
+        return countLiveData;
     }
 }
