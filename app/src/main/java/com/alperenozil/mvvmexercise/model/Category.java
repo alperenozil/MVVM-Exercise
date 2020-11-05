@@ -2,11 +2,10 @@ package com.alperenozil.mvvmexercise.model;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
-import com.alperenozil.mvvmexercise.BR;
 
 @Entity(tableName = "categories_table")
 public class Category extends BaseObservable {
@@ -33,7 +32,7 @@ public class Category extends BaseObservable {
 
     public void setId(int id) {
         this.id = id;
-        notifyPropertyChanged(androidx.databinding.library.baseAdapters.BR.id);
+        notifyPropertyChanged(BR.id);
     }
 
     @Bindable
@@ -43,7 +42,7 @@ public class Category extends BaseObservable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
-        notifyPropertyChanged(BR._all);
+        notifyPropertyChanged(BR.categoryName);
     }
 
     @Bindable
@@ -53,5 +52,6 @@ public class Category extends BaseObservable {
 
     public void setCategoryDescription(String categoryDescription) {
         this.categoryDescription = categoryDescription;
+        notifyPropertyChanged(BR.categoryDescription);
     }
 }
