@@ -36,6 +36,9 @@ public class Book extends BaseObservable {
         this.categoryId = categoryId;
     }
 
+    public Book() {
+    }
+
     @Bindable
     public int getBookId() {
         return bookId;
