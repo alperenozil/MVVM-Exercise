@@ -10,6 +10,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "categories_table")
 public class Category extends BaseObservable {
     @PrimaryKey (autoGenerate = true) // it will increment primary_key automatically
+    @ColumnInfo(name = "category_id")
     private int id;
     @ColumnInfo (name="category_name") // I gave columns different names than variables
     private String categoryName;
