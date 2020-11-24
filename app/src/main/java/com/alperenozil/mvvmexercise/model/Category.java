@@ -27,11 +27,11 @@ public class Category extends BaseObservable {
     }
 
     @Bindable
-    public int getId() {
+    public int getİd() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setİd(int id) {
         this.id = id;
         notifyPropertyChanged(BR.id);
     }
